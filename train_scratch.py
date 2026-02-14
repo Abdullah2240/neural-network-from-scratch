@@ -1,13 +1,13 @@
 import json
 import numpy as np
-from tensorflow.keras.datasets import mnist
+from tensorflow.keras.datasets import fashion_mnist
 from nn import (
     DenseLayer, DropoutLayer, Activation_ReLU,
     SoftmaxWithCategoricalCrossentropyLoss, Adam,
 )
 
-# Load and flatten MNIST
-(X_train, y_train), (X_test, y_test) = mnist.load_data()
+# Load and flatten Fashion MNIST
+(X_train, y_train), (X_test, y_test) = fashion_mnist.load_data()
 X_train = X_train.reshape(X_train.shape[0], -1).astype(np.float32) / 255.0
 X_test = X_test.reshape(X_test.shape[0], -1).astype(np.float32) / 255.0
 
