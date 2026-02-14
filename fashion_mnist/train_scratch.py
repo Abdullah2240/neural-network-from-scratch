@@ -3,6 +3,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import json
+import pickle
 import numpy as np
 from tensorflow.keras.datasets import fashion_mnist
 from nn import (
@@ -121,3 +122,18 @@ with open(RESULTS_DIR / "scratch_results.json", "w") as f:
     json.dump(history, f, indent=2)
 
 print(f"Results saved to {RESULTS_DIR / 'scratch_results.json'}")
+
+# save model weights
+weights = {
+    "dense1_weights": dense1.weights,
+    "dense1_biases": dense1.biases,
+    "dense2_weights": dense2.weights,
+    "dense2_biases": dense2.biases,
+    "dense3_weights": dense3.weights,
+    "dense3_biases": dense3.biases,
+}
+weights_path = RESULTS_DIR / "model_weights.pkl"
+with open(weights_path, "wb") as f:
+    pickle.dump(weights, f)
+
+print(f"Weights saved to {weights_path}")

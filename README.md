@@ -36,6 +36,12 @@ Same architecture for both implementations:
 - **Epochs:** 10
 - **Data Shuffling:** Random permutation each epoch
 
+## 📓 Step-by-Step Notebook
+
+Want to see how I built every component from a single neuron to a full network? Check out the full learning journey on Google Colab:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1kSnJVdCw2EiyyYwZw_wInFC0fGU8BGWB?usp=sharing)
+
 ## 🧠 What's Implemented from Scratch
 
 Every forward and backward pass derived from the math:
@@ -50,6 +56,7 @@ Every forward and backward pass derived from the math:
 
 ```
 nn/                              shared from-scratch library
+  __init__.py                    public API
   layers.py                      dense layer, dropout
   activations.py                 relu, softmax
   losses.py                      cross-entropy loss, combined softmax+loss
@@ -57,10 +64,10 @@ nn/                              shared from-scratch library
 fashion_mnist/                   Fashion MNIST classifier
   train_scratch.py               train with from-scratch implementation
   train_keras.py                 train with Keras (same arch)
+  demo.py                        interactive inference with confidence bars
   visualize_dataset.py           preview grid of dataset samples
-  results/                       saved metrics from training runs
+  results/                       saved metrics + model weights
   assets/                        images and visualizations
-  notebooks/                     jupyter notebooks
 ```
 
 ## 🛠️ Dependencies
@@ -77,7 +84,12 @@ git clone https://github.com/abdullah2240/neural-network-from-scratch.git
 cd neural-network-from-scratch
 pip install -r requirements.txt
 
-python fashion_mnist/train_scratch.py      # from-scratch implementation
+python fashion_mnist/train_scratch.py      # train and save weights
 python fashion_mnist/train_keras.py        # keras baseline for comparison
+python fashion_mnist/demo.py               # interactive demo with confidence bars
 python fashion_mnist/visualize_dataset.py  # preview the dataset
 ```
+
+## License
+
+MIT
