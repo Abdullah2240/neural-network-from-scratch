@@ -28,6 +28,3 @@ data/
 
 # Logs
 *.log
-
-# Keras comparison
-train_keras.py
