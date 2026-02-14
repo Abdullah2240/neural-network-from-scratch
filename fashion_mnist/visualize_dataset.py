@@ -1,3 +1,4 @@
+from pathlib import Path
 import matplotlib.pyplot as plt
 from tensorflow.keras.datasets import fashion_mnist
 
@@ -17,6 +18,8 @@ for i, ax in enumerate(axes.flat):
     ax.axis("off")
 
 plt.tight_layout()
-plt.savefig("assets/dataset_preview.png", dpi=150)
+ASSETS_DIR = Path(__file__).resolve().parent / "assets"
+out_path = ASSETS_DIR / "dataset_preview.png"
+plt.savefig(out_path, dpi=150)
 plt.show()
-print("Saved to assets/dataset_preview.png")
+print(f"Saved to {out_path}")

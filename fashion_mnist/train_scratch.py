@@ -1,3 +1,7 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import json
 import numpy as np
 from tensorflow.keras.datasets import fashion_mnist
@@ -112,7 +116,8 @@ print(f"\nTest accuracy: {test_acc:.4f}  Test loss: {test_loss:.4f}")
 history["test_acc"] = float(test_acc)
 history["test_loss"] = float(test_loss)
 
-with open("results/scratch_results.json", "w") as f:
+RESULTS_DIR = Path(__file__).resolve().parent / "results"
+with open(RESULTS_DIR / "scratch_results.json", "w") as f:
     json.dump(history, f, indent=2)
 
-print("Results saved to results/scratch_results.json")
+print(f"Results saved to {RESULTS_DIR / 'scratch_results.json'}")

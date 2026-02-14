@@ -1,3 +1,7 @@
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import json
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -46,7 +50,8 @@ results = {
     "test_loss": float(test_loss),
 }
 
-with open("results/keras_results.json", "w") as f:
+RESULTS_DIR = Path(__file__).resolve().parent / "results"
+with open(RESULTS_DIR / "keras_results.json", "w") as f:
     json.dump(results, f, indent=2)
 
-print("Results saved to results/keras_results.json")
+print(f"Results saved to {RESULTS_DIR / 'keras_results.json'}")
