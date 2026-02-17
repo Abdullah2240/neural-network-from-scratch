@@ -17,8 +17,8 @@ A fully connected neural network implemented from scratch using **only NumPy** �
 
 | | Test MSE | Test MAE | Test R² |
 |---|---|---|---|
-| **From Scratch (NumPy)** | 0.417 | 0.448 | 0.690 |
-| Keras Baseline | **0.351** | **0.388** | **0.758** |
+| **From Scratch (NumPy)** | **0.337** | 0.402 | 0.750 |
+| Keras Baseline | 0.351 | **0.388** | **0.758** |
 
 ![California Housing Training Curves](california_housing/assets/training_curves.png)
 
@@ -54,8 +54,8 @@ Loss: Categorical Cross-Entropy | Optimizer: Adam (lr=0.001, decay=1e-4) | Batch
 | Layer | Units | Activation | Initialization | Regularization | Dropout |
 |---|---|---|---|---|---|
 | Input | 8 | — | — | — | — |
-| Hidden 1 | 64 | ReLU | Random (0.01σ) | L2 (λ = 5e-4) | 0.1 |
-| Hidden 2 | 32 | ReLU | Random (0.01σ) | L2 (λ = 5e-4) | 0.1 |
+| Hidden 1 | 64 | ReLU | He (√(2/n)) | L2 (λ = 5e-4) | 0.1 |
+| Hidden 2 | 32 | ReLU | He (√(2/n)) | L2 (λ = 5e-4) | 0.1 |
 | Output | 1 | Linear | — | — | — |
 
 Loss: Mean Squared Error | Optimizer: Adam (lr=0.001, decay=1e-4) | Batch: 128 | Epochs: 50

@@ -34,10 +34,12 @@ y_test = y_test.reshape(-1, 1).astype(np.float32)
 
 # 8 -> 64 -> 32 -> 1
 dense1 = DenseLayer(8, 64, weight_regularization_l2=5e-4, bias_regularization_l2=5e-4)
+dense1.weights = np.random.randn(8, 64) * np.sqrt(2.0 / 8)
 activation1 = Activation_ReLU()
 dropout1 = DropoutLayer(0.1)
 
 dense2 = DenseLayer(64, 32, weight_regularization_l2=5e-4, bias_regularization_l2=5e-4)
+dense2.weights = np.random.randn(64, 32) * np.sqrt(2.0 / 64)
 activation2 = Activation_ReLU()
 dropout2 = DropoutLayer(0.1)
 
