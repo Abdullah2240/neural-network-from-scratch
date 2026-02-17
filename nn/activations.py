@@ -16,3 +16,12 @@ class Activation_Softmax:
         exp_inputs = np.exp(inputs - np.max(inputs, axis=1, keepdims=True))
         probabilities = exp_inputs / np.sum(exp_inputs, axis=1, keepdims=True)
         self.outputs = probabilities
+
+
+class Activation_Linear:
+    def forward(self, inputs):
+        self.inputs = inputs
+        self.outputs = inputs
+
+    def backward(self, dvalues):
+        self.dinputs = dvalues.copy()

@@ -64,3 +64,17 @@ class SoftmaxWithCategoricalCrossentropyLoss:
         self.dinputs = dvalues.copy()
         self.dinputs[range(samples), y_true] -= 1
         self.dinputs = self.dinputs / samples
+
+
+class MeanSquaredErrorLoss(Loss):
+    def forward(self, y_pred, y_true):
+        y_true = y_true.reshape(y_pred.shape)
+        sample_losses = np.mean((y_true - y_pred) ** 2, axis=-1)
+        return sample_losses
+
+    def backward(self, dvalues, y_true):
+        samples = len(dvalues)
+        outputs = dvalues.shape[-1]
+        y_true = y_true.reshape(dvalues.shape)
+        self.dinputs = -2 * (y_true - dvalues) / outputs
+        self.dinputs = self.dinputs / samples
