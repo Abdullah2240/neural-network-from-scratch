@@ -11,12 +11,16 @@ A fully connected neural network implemented from scratch using **only NumPy** â
 | **From Scratch (NumPy)** | 87.5% | **87.0%** | **0.360** |
 | Keras Baseline | 88.2% | 87.0% | 0.429 |
 
+![Fashion MNIST Training Curves](fashion_mnist/assets/training_curves.png)
+
 ### California Housing (Regression)
 
 | | Test MSE | Test MAE | Test RÂ² |
 |---|---|---|---|
 | **From Scratch (NumPy)** | 0.417 | 0.448 | 0.690 |
 | Keras Baseline | **0.351** | **0.388** | **0.758** |
+
+![California Housing Training Curves](california_housing/assets/training_curves.png)
 
 ## Dataset
 
